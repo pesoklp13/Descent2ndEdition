@@ -1,0 +1,144 @@
+local pageList = {}
+local currentPage = 1
+local zoomFactor = 1.2
+
+function showRules(player, value, id)
+  Global.UI.show("RulesPanel")
+  Global.UI.setAttribute("RulesPanel", "active", "true")
+end
+
+function RulesClicked(player, value, id)
+  local nextPage = "nextPage"
+  local previousPage = "previousPage"
+  local CurrentPageCount = "CurrentPageCount"
+  local image = "RulesImage"
+  local cPage = currentPage
+  local pList = pageList
+  local panel = "RulesPanel"
+  local imageScroll = "imageScroll"
+  local zF = zoomFactor
+
+  if id:find("closeButton") then
+    Global.UI.hide(panel)
+  elseif id == "index" then
+    Global.UI.setAttribute(CurrentPageCount, "text", 53)
+    Global.UI.setAttribute(image, "image", pList[53])
+    if Global.UI.getAttribute(nextPage, "active") == "false" then
+      Global.UI.setAttribute(nextPage, "active", "true")
+    end
+    if Global.UI.getAttribute(previousPage, "active") == "false" then
+      Global.UI.setAttribute(previousPage, "active", "true")
+    end
+    currentPage = 53
+  elseif id:find("nextPage") then
+    if cPage < #pList then
+      cPage = cPage + 1
+      if cPage == #pList then --if on the last page
+        Global.UI.setAttribute(nextPage, "active", "false")
+      else
+        --turn on next button if it's off
+        if Global.UI.getAttribute(nextPage, "active") == "false" then
+          Global.UI.setAttribute(nextPage, "active", "true")
+        end
+      end
+      --Turn on previous button if it's off
+      if Global.UI.getAttribute(previousPage, "active") == "false" then
+        Global.UI.setAttribute(previousPage, "active", "true")
+      end
+      Global.UI.setAttribute(CurrentPageCount, "text", cPage)
+      Global.UI.setAttribute(image, "image", pList[cPage])
+      currentPage = cPage
+    end
+  elseif id:find("previousPage") then
+    if cPage > 1 then
+      cPage = cPage - 1
+      if cPage == 1 then --if on the first page
+        Global.UI.setAttribute(previousPage, "active", "false")
+      else
+        --turn on previous button if it's off
+        if Global.UI.getAttribute(previousPage, "active") == "false" then
+          Global.UI.setAttribute(previousPage, "active", "true")
+        end
+      end
+      --Turn on next button if it's off
+      if Global.UI.getAttribute(nextPage, "active") == "false" then
+        Global.UI.setAttribute(nextPage, "active", "true")
+      end
+      Global.UI.setAttribute(CurrentPageCount, "text", cPage)
+      Global.UI.setAttribute(image, "image", pList[cPage])
+      currentPage = cPage
+    end
+  elseif id:find("zoomInButton") then
+    local newWidth = tonumber(Global.UI.getAttribute(image, "width")) * zF
+    local newHeight = tonumber(Global.UI.getAttribute(image, "height")) * zF
+    Global.UI.setAttribute(image, "width", tostring(newWidth))
+    Global.UI.setAttribute(image, "height", tostring(newHeight))
+  elseif id:find("zoomOutButton") then
+    local newWidth = tonumber(Global.UI.getAttribute(image, "width")) / zF
+    local newHeight = tonumber(Global.UI.getAttribute(image, "height")) / zF
+    Global.UI.setAttribute(image, "width", tostring(newWidth))
+    Global.UI.setAttribute(image, "height", tostring(newHeight))
+  elseif id:find("widenButton") then
+    local newWidth = Global.UI.getAttribute(imageScroll, "width") * zF
+    Global.UI.setAttribute(imageScroll, "width", tostring(newWidth))
+    newWidth = Global.UI.getAttribute(panel, "width") * zF
+    Global.UI.setAttribute(panel, "width", tostring(newWidth))
+  elseif id:find("narrowButton") then
+    local newWidth = Global.UI.getAttribute(imageScroll, "width") / zF
+    Global.UI.setAttribute(imageScroll, "width", tostring(newWidth))
+    newWidth = Global.UI.getAttribute(panel, "width") / zF
+    Global.UI.setAttribute(panel, "width", tostring(newWidth))
+  end
+end
+
+function onEndEditZoomPercentage(player, value, id)
+  local InputZoomMultiplier = "InputZoomMultiplier"
+  local zF = zoomFactor
+
+  if value == "" then
+    Global.UI.setAttribute(InputZoomMultiplier, "text", zF * 100)
+    return
+  end
+
+  if value + 0 <= 100 then
+    broadcastToColor("Zoom value must be above 100", player.color, stringColorToRGB("Red"))
+  else
+    zF = value / 100
+  end
+  zoomFactor = zF
+
+end
+
+function onEndEditCurrentPage(player, value, id)
+  local nextPage = "nextPage"
+  local previousPage = "previousPage"
+  local CurrentPageCount = "CurrentPageCount"
+  local image = "RulesImage"
+  local previousCurrentPage = currentPage
+  local pList = pageList
+
+  if value == "" then
+    Global.UI.setAttribute(CurrentPageCount, "text", previousCurrentPage)
+    return
+  end
+
+  local cPage = value + 0
+  if cPage <= #pList and cPage > 0 then
+    if cPage == #pList then --if on the last page
+      Global.UI.setAttribute(nextPage, "active", "false")
+      Global.UI.setAttribute(previousPage, "active", "true")
+    elseif cPage == 1 then
+      Global.UI.setAttribute(previousPage, "active", "false")
+      Global.UI.setAttribute(nextPage, "active", "true")
+    else -- if in between first and last page
+      Global.UI.setAttribute(nextPage, "active", "true")
+      Global.UI.setAttribute(previousPage, "active", "true")
+    end
+    Global.UI.setAttribute(CurrentPageCount, "text", cPage)
+    Global.UI.setAttribute(image, "image", pList[cPage])
+    currentPage = cPage
+  else
+    Global.UI.setAttribute("CurrentPageCount", "text", previousCurrentPage)
+    broadcastToColor("You must type a number between 1 and "..#pList, player.color, stringColorToRGB("Red"))
+  end
+end

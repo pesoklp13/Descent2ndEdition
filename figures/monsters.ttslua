@@ -1,0 +1,108 @@
+monsterPositions = {
+  Act1Monsters = {
+    { - 67.76, 3.98, 50.16},
+    { - 55.44, 3.98, 50.16},
+    { - 54.56, 1.47, 31.68}
+  },
+  Act1Lieutenants = {
+    { - 42.24, 5.98, 51.04},
+    { - 44.00, 1.47, 31.68}
+  },
+  Act2Monsters = {
+    {55.44, 3.98, 50.16},
+    {67.76, 3.98, 50.16},
+    {54.56, 1.47, 31.68}
+  },
+  Act2Lieutenants2 = {
+    {42.24, 5.98, 51.04},
+    {44.00, 1.47, 31.68}
+  },
+  Healer = {{ - 18.48, 10.17, 53.68}},
+  HealerSkill = {{ - 13.20, 10.16, 53.68}},
+  Warrior = {{ - 7.92, 10.16, 53.68}},
+  WarriorSkill = {{ - 2.64, 10.15, 53.68}},
+  Mage = {{2.64, 10.16, 53.68}},
+  MageSkill = {{7.92, 10.15, 53.68}},
+  Scout = {{13.20, 10.16, 53.68}},
+  ScoutSkill = {{18.48, 10.15, 53.68}},
+  actual = "Act1Monsters"
+}
+
+function getObjectWithStates(pos)
+  local hitlist = Physics.cast({
+    origin = pos,
+    direction = {0, 1, 0},
+    type = 2,
+    size = {3, 3, 3},
+    max_distance = 0,
+    debug = false
+  }) -- returns {{Vector point, Vector normal, float distance, Object hit_object}, ...}
+
+  for i, j in pairs(hitlist) do
+    if j.hit_object.getStateId() ~= -1 then
+      return j.hit_object
+    end
+  end
+  return nil
+end
+
+function showMonster(player, value, id)
+  local panel = value:sub(5)
+
+  if self.UI.getAttribute(panel, "active") == "false" or self.UI.getAttribute(panel, "active") == nil then
+    self.UI.show(panel)
+    self.UI.setAttribute(panel, "active", "true")
+  else
+    self.UI.hide(panel)
+    self.UI.setAttribute(panel, "active", "false")
+  end
+  monsterPositions.actual = value
+end
+
+function showHeros(player, value, id)
+  if self.UI.getAttribute("heros", "active") == "false" or self.UI.getAttribute("heros", "active") == nil then
+    showHero(player, "Healer", id)
+    self.UI.show("heros")
+    self.UI.setAttribute("heros", "active", "true")
+  else
+    self.UI.hide("heros")
+    self.UI.setAttribute("heros", "active", "false")
+  end
+end
+
+function showHero(player, value, id)
+  self.UI.show(value)
+  self.UI.setAttribute(value, "active", "true")
+  for _, class in pairs({"Healer", "Warrior", "Mage", "Scout"}) do
+    if class ~= value then
+      self.UI.hide(class)
+      self.UI.setAttribute(class, "active", "false")
+    end
+  end
+  monsterPositions.actual = value
+end
+
+function HeroSkill(player, value, id)
+  local temp = monsterPositions.actual
+  monsterPositions.actual = monsterPositions.actual .. "Skill"
+  MonsterClicked(player, value, id)
+  monsterPositions.actual = temp
+end
+
+function hideHeros(player, value, id)
+  showHeros(player, value, id)
+end
+
+function MonsterClicked(player, value, id)
+  for _, pos in pairs(monsterPositions[monsterPositions.actual]) do
+    local obj = getObjectWithStates(pos)
+
+    if obj ~= nil then
+      if obj.getStateId() ~= tonumber(value) then
+        obj.setState(tonumber(value))
+      end
+    end
+  end
+
+  showMonster(nil, monsterPositions.actual, nil)
+end

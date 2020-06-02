@@ -1,0 +1,44 @@
+-- Figure class base class for monsters, villains and heros on the table
+Figure = {
+    -- healt of figure --
+    health = {
+        value = 10,
+        max = 10
+    },
+    -- States which can be displayed above figure
+    -- to determine current state like poisoned.
+    -- To be able to display this states in panel,
+    -- the model in TTS has to have defined it in asset bundle for that model
+    states = {
+        Diseased = false,
+        Poisoned = false,
+        Stunned = false,
+        Immobilized = false,
+        Bleeding = false,
+        Cursed = false,
+        Terrified = false,
+        Doomed = false,
+        Burning = false,
+        Weakened = false
+    }
+}
+
+function Figure:modifyHealth(units)
+    print('modifyHealth called with' .. units)
+    self.health.value = math.max(math.min(self.health.value + units, self.health.max),0)
+end
+
+function Figure:modifyMaxHealth(units)
+    print('modifyMaxHealth with' .. units)
+    self.health.max = self.health.max + units
+    self:modifyHealth(units)
+end
+
+-- constructor --
+function Figure:new(figure)
+    figure = figure or {}
+    setmetatable(figure, self)
+    self.__index = self
+
+    return figure
+end

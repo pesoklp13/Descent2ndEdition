@@ -1,0 +1,336 @@
+<Panel id="Monsters" active="false" scale="0.5 0.5 0.5" width="2500" height="1500" color="#C0C0C0F0">
+  <VerticalLayout>
+    <HorizontalLayout>
+      <Button class="Monster" onclick="MonsterClicked(1)">Arachchyura</Button>
+      <Button class="Monster" onclick="MonsterClicked(2)">Bandit</Button>
+      <Button class="Monster" onclick="MonsterClicked(3)">Bane spider</Button>
+      <Button class="Monster" onclick="MonsterClicked(4)">Barghest</Button>
+      <Button class="Monster" onclick="MonsterClicked(5)">Beastman</Button>
+      <Button class="Monster" onclick="MonsterClicked(6)">Bone horror</Button>
+      <Button class="Monster" onclick="MonsterClicked(7)">Blood Ape</Button>
+    </HorizontalLayout>
+    <HorizontalLayout>
+      <Button class="Monster" onclick="MonsterClicked(8)">Broodwalker</Button>
+      <Button class="Monster" onclick="MonsterClicked(9)">Carrion drake</Button>
+      <Button class="Monster" onclick="MonsterClicked(10)">Cave spider</Button>
+      <Button class="Monster" onclick="MonsterClicked(11)">Changeling</Button>
+      <Button class="Monster" onclick="MonsterClicked(12)">Chaos beast</Button>
+      <Button class="Monster" onclick="MonsterClicked(13)">Crow hag</Button>
+      <Button class="Monster" onclick="MonsterClicked(14)">Crypt Dragon</Button>
+    </HorizontalLayout>
+    <HorizontalLayout>
+      <Button class="Monster" onclick="MonsterClicked(15)">Dark minotaur</Button>
+      <Button class="Monster" onclick="MonsterClicked(16)">Dark priest</Button>
+      <Button class="Monster" onclick="MonsterClicked(17)">Deep elves</Button>
+      <Button class="Monster" onclick="MonsterClicked(18)">Demon Lord</Button>
+      <Button class="Monster" onclick="MonsterClicked(19)">The Dispossessed</Button>
+      <Button class="Monster" onclick="MonsterClicked(20)">Elemental</Button>
+      <Button class="Monster" onclick="MonsterClicked(21)">Ettin</Button>
+    </HorizontalLayout>
+    <HorizontalLayout>
+      <Button class="Monster" onclick="MonsterClicked(22)">Ferrox</Button>
+      <Button class="Monster" onclick="MonsterClicked(23)">Fire imps</Button>
+      <Button class="Monster" onclick="MonsterClicked(24)">Flesh moulder</Button>
+      <Button class="Monster" onclick="MonsterClicked(25)">Giant</Button>
+      <Button class="Monster" onclick="MonsterClicked(26)">Goblin archer</Button>
+      <Button class="Monster" onclick="MonsterClicked(27)">Goblin witcher</Button>
+      <Button class="Monster" onclick="MonsterClicked(28)">Golem</Button>
+    </HorizontalLayout>
+    <HorizontalLayout>
+      <Button class="Monster" onclick="MonsterClicked(29)">Harpy</Button>
+      <Button class="Monster" onclick="MonsterClicked(30)">Hellbound</Button>
+      <Button class="Monster" onclick="MonsterClicked(31)">Hybrid sentinel</Button>
+      <Button class="Monster" onclick="MonsterClicked(32)">Ice Wyrm</Button>
+      <Button class="Monster" onclick="MonsterClicked(33)">Inbound</Button>
+      <Button class="Monster" onclick="MonsterClicked(34)">Kobolds</Button>
+      <Button class="Monster" onclick="MonsterClicked(35)">Lava beetle</Button>
+    </HorizontalLayout>
+    <HorizontalLayout>
+      <Button class="Monster" onclick="MonsterClicked(36)">Manticore</Button>
+      <Button class="Monster" onclick="MonsterClicked(37)">Marrow Priest</Button>
+      <Button class="Monster" onclick="MonsterClicked(38)">Medusa</Button>
+      <Button class="Monster" onclick="MonsterClicked(39)">Merriod</Button>
+      <Button class="Monster" onclick="MonsterClicked(40)">Naga</Button>
+      <Button class="Monster" onclick="MonsterClicked(41)">Ogre</Button>
+      <Button class="Monster" onclick="MonsterClicked(42)">Plague worm</Button>
+    </HorizontalLayout>
+    <HorizontalLayout>
+      <Button class="Monster" onclick="MonsterClicked(43)">Rat swarm</Button>
+      <Button class="Monster" onclick="MonsterClicked(44)">Razorwing</Button>
+      <Button class="Monster" onclick="MonsterClicked(45)">Reanimate</Button>
+      <Button class="Monster" onclick="MonsterClicked(46)">Shade</Button>
+      <Button class="Monster" onclick="MonsterClicked(47)">Shadow dragon</Button>
+      <Button class="Monster" onclick="MonsterClicked(48)">Shambling Colossus</Button>
+      <Button class="Monster" onclick="MonsterClicked(49)">Skeleton archer</Button>
+    </HorizontalLayout>
+    <HorizontalLayout>
+      <Button class="Monster" onclick="MonsterClicked(50)">Sorcerer</Button>
+      <Button class="Monster" onclick="MonsterClicked(51)">Troll</Button>
+      <Button class="Monster" onclick="MonsterClicked(52)">Volucrix reaver</Button>
+      <Button class="Monster" onclick="MonsterClicked(53)">Wendigo</Button>
+      <Button class="Monster" onclick="MonsterClicked(54)">Wraith</Button>
+      <Button class="Monster" onclick="MonsterClicked(55)">Ynfernael hulk</Button>
+      <Button class="Monster" onclick="MonsterClicked(56)">Zombie</Button>
+    </HorizontalLayout>
+  </VerticalLayout>
+</Panel>
+
+<Panel id="Lieutenants" active="false" scale="0.5 0.5 0.5" width="2500" height="1500" color="#C0C0C0F0">
+  <VerticalLayout>
+    <HorizontalLayout>
+      <Button class="Monster" onclick="MonsterClicked(1)">Alric Farrow</Button>
+      <Button class="Monster" onclick="MonsterClicked(2)">Ardus Ix'Erebus</Button>
+      <Button class="Monster" onclick="MonsterClicked(3)">Ariad</Button>
+      <Button class="Monster" onclick="MonsterClicked(4)">Belthir</Button>
+    </HorizontalLayout>
+    <HorizontalLayout>
+      <Button class="Monster" onclick="MonsterClicked(5)">Bol'Goreth</Button>
+      <Button class="Monster" onclick="MonsterClicked(6)">Eliza Farrow</Button>
+      <Button class="Monster" onclick="MonsterClicked(7)">Gargan Mirklace</Button>
+      <Button class="Monster" onclick="MonsterClicked(8)">Kyndrithul</Button>
+    </HorizontalLayout>
+    <HorizontalLayout>
+      <Button class="Monster" onclick="MonsterClicked(9)">Merick Farrow</Button>
+      <Button class="Monster" onclick="MonsterClicked(10)">Rylan Olliven</Button>
+      <Button class="Monster" onclick="MonsterClicked(11)">Skarn</Button>
+      <Button class="Monster" onclick="MonsterClicked(12)">Splig</Button>
+    </HorizontalLayout>
+    <HorizontalLayout>
+      <Button class="Monster" onclick="MonsterClicked(13)">Tristayne Olliven</Button>
+      <Button class="Monster" onclick="MonsterClicked(14)">Valyndra</Button>
+      <Button class="Monster" onclick="MonsterClicked(15)">Verminous</Button>
+      <Button class="Monster" onclick="MonsterClicked(16)">Zachareth</Button>
+    </HorizontalLayout>
+    <HorizontalLayout>
+      <Button class="Monster" onclick="MonsterClicked(17)">Zarihell</Button>
+    </HorizontalLayout>
+  </VerticalLayout>
+</Panel>
+<Panel id="Lieutenants2" active="false" scale="0.5 0.5 0.5" width="2500" height="1500" color="#C0C0C0F0">
+  <VerticalLayout>
+    <HorizontalLayout>
+      <Button class="Monster" onclick="MonsterClicked(1)">Alric Farrow</Button>
+      <Button class="Monster" onclick="MonsterClicked(2)">Ardus Ix'Erebus</Button>
+      <Button class="Monster" onclick="MonsterClicked(3)">Ariad</Button>
+      <Button class="Monster" onclick="MonsterClicked(4)">Belthir</Button>
+    </HorizontalLayout>
+    <HorizontalLayout>
+      <Button class="Monster" onclick="MonsterClicked(5)">Bol'Goreth</Button>
+      <Button class="Monster" onclick="MonsterClicked(6)">Eliza Farrow</Button>
+      <Button class="Monster" onclick="MonsterClicked(7)">Gargan Mirklace</Button>
+      <Button class="Monster" onclick="MonsterClicked(8)">Kyndrithul</Button>
+    </HorizontalLayout>
+    <HorizontalLayout>
+      <Button class="Monster" onclick="MonsterClicked(9)">Merick Farrow</Button>
+      <Button class="Monster" onclick="MonsterClicked(10)">Queen Ariad</Button>
+      <Button class="Monster" onclick="MonsterClicked(11)">Raythen</Button>
+      <Button class="Monster" onclick="MonsterClicked(12)">Rylan Olliven</Button>
+    </HorizontalLayout>
+    <HorizontalLayout>
+      <Button class="Monster" onclick="MonsterClicked(13)">Serena</Button>
+      <Button class="Monster" onclick="MonsterClicked(14)">Skarn</Button>
+      <Button class="Monster" onclick="MonsterClicked(15)">Splig</Button>
+      <Button class="Monster" onclick="MonsterClicked(16)">Tristayne Olliven</Button>
+    </HorizontalLayout>
+    <HorizontalLayout>
+      <Button class="Monster" onclick="MonsterClicked(17)">Valyndra</Button>
+      <Button class="Monster" onclick="MonsterClicked(18)">Verminous</Button>
+      <Button class="Monster" onclick="MonsterClicked(19)">Zachareth</Button>
+      <Button class="Monster" onclick="MonsterClicked(20)">Zarihell</Button>
+    </HorizontalLayout>
+  </VerticalLayout>
+</Panel>
+
+<Panel id="heros" active="false" scale="0.5 0.5 0.5" width="2500" height="1500" color="#C0C0C0F0">
+  <HorizontalLayout rectAlignment="UpperCenter" width="2500" height="75">
+    <Button class="Monster" onclick="showHero(Healer)" color="#2E397E">Healer</Button>
+    <Button class="Monster" onclick="showHero(Warrior)" color="#B22A28">Warrior</Button>
+    <Button class="Monster" onclick="showHero(Mage)" color="#D98F00">Mage</Button>
+    <Button class="Monster" onclick="showHero(Scout)" color="#386E2C">Scout</Button>
+  </HorizontalLayout>
+  <Button rectAlignment="UpperRight" width="50" height="50" color="#DD0000" fontSize="30" onClick="hideHeros">X</Button>
+  <Panel id="Healer" class="class" active="true" color="#2E397E">
+    <Text height="50" width="2000" rectAlignment="UpperLeft" fontSize="30">Heroes</Text>
+    <Text height="50" width="500" rectAlignment="UpperRight" fontSize="30">Archetype</Text>
+    <Panel rectAlignment="LowerLeft" height="1375" width="2000">
+      <VerticalLayout>
+        <HorizontalLayout>
+          <Button class="Monster" onclick="MonsterClicked(1)">Andira Runehand</Button>
+          <Button class="Monster" onclick="MonsterClicked(2)">Ashrian</Button>
+          <Button class="Monster" onclick="MonsterClicked(3)">Augur Grisom</Button>
+          <Button class="Monster" onclick="MonsterClicked(4)">Avric Albright</Button>
+        </HorizontalLayout>
+        <HorizontalLayout>
+          <Button class="Monster" onclick="MonsterClicked(5)">Brother Gherinn</Button>
+          <Button class="Monster" onclick="MonsterClicked(6)">Elder Mok</Button>
+          <Button class="Monster" onclick="MonsterClicked(7)">Ispher</Button>
+          <Button class="Monster" onclick="MonsterClicked(8)">Jonas the Kind</Button>
+        </HorizontalLayout>
+        <HorizontalLayout>
+          <Button class="Monster" onclick="MonsterClicked(9)">Okaluk and Rakash</Button>
+          <Button class="Monster" onclick="MonsterClicked(10)">Rendiel</Button>
+          <Button class="Monster" onclick="MonsterClicked(11)">Sahla</Button>
+          <Button class="Monster" onclick="MonsterClicked(12)">Serena</Button>
+        </HorizontalLayout>
+        <HorizontalLayout>
+          <Button class="Monster" onclick="MonsterClicked(13)">Ulma Grimstone</Button>
+          <Button class="Monster" onclick="MonsterClicked(14)">Aurim</Button>
+          <Button class="Monster" onclick="MonsterClicked(15)">Brother Glyr</Button>
+        </HorizontalLayout>
+      </VerticalLayout>
+    </Panel>
+    <Panel rectAlignment="LowerRight" height="1375" width="500">
+      <VerticalLayout>
+        <Button class="Skill" onclick="HeroSkill(1)">Apothecary</Button>
+        <Button class="Skill" onclick="HeroSkill(2)">Bard</Button>
+        <Button class="Skill" onclick="HeroSkill(3)">Disciple</Button>
+        <Button class="Skill" onclick="HeroSkill(4)">Prophet</Button>
+        <Button class="Skill" onclick="HeroSkill(5)">Spiritspeaker</Button>
+        <Button class="Skill" onclick="HeroSkill(6)">Watchman</Button>
+      </VerticalLayout>
+    </Panel>
+  </Panel>
+  <Panel id="Warrior" class="class" color="#B22A28">
+    <Text height="50" width="2000" rectAlignment="UpperLeft" fontSize="30">Heroes</Text>
+    <Text height="50" width="500" rectAlignment="UpperRight" fontSize="30">Archetype</Text>
+    <Panel rectAlignment="LowerLeft" height="1375" width="2000">
+      <VerticalLayout>
+        <HorizontalLayout>
+          <Button class="Monster" onclick="MonsterClicked(1)">Alys Raine</Button>
+          <Button class="Monster" onclick="MonsterClicked(2)">Corbin</Button>
+          <Button class="Monster" onclick="MonsterClicked(3)">Grisban the Thirsty</Button>
+          <Button class="Monster" onclick="MonsterClicked(4)">Karnon</Button>
+        </HorizontalLayout>
+        <HorizontalLayout>
+          <Button class="Monster" onclick="MonsterClicked(5)">Krutzbeck</Button>
+          <Button class="Monster" onclick="MonsterClicked(6)">Lord Hawthorne</Button>
+          <Button class="Monster" onclick="MonsterClicked(7)">Mordrog</Button>
+          <Button class="Monster" onclick="MonsterClicked(8)">Nanok of the Blade</Button>
+        </HorizontalLayout>
+        <HorizontalLayout>
+          <Button class="Monster" onclick="MonsterClicked(9)">Nara the Fang</Button>
+          <Button class="Monster" onclick="MonsterClicked(10)">One Fist</Button>
+          <Button class="Monster" onclick="MonsterClicked(11)">Orkell the Swift</Button>
+          <Button class="Monster" onclick="MonsterClicked(12)">Pathfinder Durik</Button>
+        </HorizontalLayout>
+        <HorizontalLayout>
+          <Button class="Monster" onclick="MonsterClicked(13)">Reynhart the Worthy</Button>
+          <Button class="Monster" onclick="MonsterClicked(14)">Sir Valadir</Button>
+          <Button class="Monster" onclick="MonsterClicked(15)">Steelhorns</Button>
+          <Button class="Monster" onclick="MonsterClicked(16)">Syndrael</Button>
+        </HorizontalLayout>
+        <HorizontalLayout>
+          <Button class="Monster" onclick="MonsterClicked(17)">Tahlia</Button>
+          <Button class="Monster" onclick="MonsterClicked(18)">Trenloe the Strong</Button>
+          <Button class="Monster" onclick="MonsterClicked(19)">Eliam</Button>
+          <Button class="Monster" onclick="MonsterClicked(20)">Hugo the Glorious</Button>
+        </HorizontalLayout>
+        <HorizontalLayout>
+          <Button class="Monster" onclick="MonsterClicked(21)">Laughin Buldar</Button>
+          <Button class="Monster" onclick="MonsterClicked(22)">Varikas the Dead</Button>
+        </HorizontalLayout>
+      </VerticalLayout>
+    </Panel>
+    <Panel rectAlignment="LowerRight" height="1375" width="500">
+      <VerticalLayout>
+        <Button class="Skill" onclick="HeroSkill(1)">Beastmaster</Button>
+        <Button class="Skill" onclick="HeroSkill(2)">Berserker</Button>
+        <Button class="Skill" onclick="HeroSkill(3)">Champion</Button>
+        <Button class="Skill" onclick="HeroSkill(4)">Knight</Button>
+        <Button class="Skill" onclick="HeroSkill(5)">Marshal</Button>
+        <Button class="Skill" onclick="HeroSkill(6)">Skirmisher</Button>
+        <Button class="Skill" onclick="HeroSkill(7)">Steelcaster</Button>
+      </VerticalLayout>
+    </Panel>
+  </Panel>
+  <Panel id="Mage" class="class" color="#D98F00">
+    <Text height="50" width="2000" rectAlignment="UpperLeft" fontSize="30">Heroes</Text>
+    <Text height="50" width="500" rectAlignment="UpperRight" fontSize="30">Archetype</Text>
+    <Panel rectAlignment="LowerLeft" height="1375" width="2000">
+      <VerticalLayout>
+        <HorizontalLayout>
+          <Button class="Monster" onclick="MonsterClicked(1)">Astarra</Button>
+          <Button class="Monster" onclick="MonsterClicked(2)">Challara</Button>
+          <Button class="Monster" onclick="MonsterClicked(3)">Dezra the Vile</Button>
+          <Button class="Monster" onclick="MonsterClicked(4)">High Mage Quellen</Button>
+        </HorizontalLayout>
+        <HorizontalLayout>
+          <Button class="Monster" onclick="MonsterClicked(5)">Jaes the Exile</Button>
+          <Button class="Monster" onclick="MonsterClicked(6)">Leoric of the Book</Button>
+          <Button class="Monster" onclick="MonsterClicked(7)">Lyssa</Button>
+          <Button class="Monster" onclick="MonsterClicked(8)">Master Thorn</Button>
+        </HorizontalLayout>
+        <HorizontalLayout>
+          <Button class="Monster" onclick="MonsterClicked(9)">Ravaella Lightfoot</Button>
+          <Button class="Monster" onclick="MonsterClicked(10)">Seer Kel</Button>
+          <Button class="Monster" onclick="MonsterClicked(11)">Shiver</Button>
+          <Button class="Monster" onclick="MonsterClicked(12)">Widow Tarha</Button>
+        </HorizontalLayout>
+        <HorizontalLayout>
+          <Button class="Monster" onclick="MonsterClicked(13)">Zyla</Button>
+          <Button class="Monster" onclick="MonsterClicked(14)">Landrec the Wise</Button>
+          <Button class="Monster" onclick="MonsterClicked(15)">Mad Carthos</Button>
+        </HorizontalLayout>
+      </VerticalLayout>
+    </Panel>
+    <Panel rectAlignment="LowerRight" height="1375" width="500">
+      <VerticalLayout>
+        <Button class="Skill" onclick="HeroSkill(1)">Battlemage</Button>
+        <Button class="Skill" onclick="HeroSkill(2)">Conjurer</Button>
+        <Button class="Skill" onclick="HeroSkill(3)">Geomancer</Button>
+        <Button class="Skill" onclick="HeroSkill(4)">Hexer</Button>
+        <Button class="Skill" onclick="HeroSkill(5)">Necromancer</Button>
+        <Button class="Skill" onclick="HeroSkill(6)">Runemaster</Button>
+      </VerticalLayout>
+    </Panel>
+  </Panel>
+  <Panel id="Scout" class="class" color="#386E2C">
+    <Text height="50" width="2000" rectAlignment="UpperLeft" fontSize="30">Heroes</Text>
+    <Text height="50" width="500" rectAlignment="UpperRight" fontSize="30">Archetype</Text>
+    <Panel rectAlignment="LowerLeft" height="1375" width="2000">
+      <VerticalLayout>
+        <HorizontalLayout>
+          <Button class="Monster" onclick="MonsterClicked(1)">Arvel Worldwalker</Button>
+          <Button class="Monster" onclick="MonsterClicked(2)">Grey Ker</Button>
+          <Button class="Monster" onclick="MonsterClicked(3)">Jain Fairwood</Button>
+          <Button class="Monster" onclick="MonsterClicked(4)">Laurel of Bloodwood</Button>
+        </HorizontalLayout>
+        <HorizontalLayout>
+          <Button class="Monster" onclick="MonsterClicked(5)">Lindel</Button>
+          <Button class="Monster" onclick="MonsterClicked(6)">Logan Lashley</Button>
+          <Button class="Monster" onclick="MonsterClicked(7)">Raythen</Button>
+          <Button class="Monster" onclick="MonsterClicked(8)">Roganna the Shade</Button>
+        </HorizontalLayout>
+        <HorizontalLayout>
+          <Button class="Monster" onclick="MonsterClicked(9)">Ronan of the Wild</Button>
+          <Button class="Monster" onclick="MonsterClicked(10)">Silhouette</Button>
+          <Button class="Monster" onclick="MonsterClicked(11)">Tatianna</Button>
+          <Button class="Monster" onclick="MonsterClicked(12)">Tetherys</Button>
+        </HorizontalLayout>
+        <HorizontalLayout>
+          <Button class="Monster" onclick="MonsterClicked(13)">Thaiden Mistpeak</Button>
+          <Button class="Monster" onclick="MonsterClicked(14)">Tinashi the Wanderer</Button>
+          <Button class="Monster" onclick="MonsterClicked(15)">Tomble Burrowell</Button>
+          <Button class="Monster" onclick="MonsterClicked(16)">Vyrah the Falconer</Button>
+        </HorizontalLayout>
+        <HorizontalLayout>
+          <Button class="Monster" onclick="MonsterClicked(17)">Bogran the Shadow</Button>
+          <Button class="Monster" onclick="MonsterClicked(18)">Kirga</Button>
+          <Button class="Monster" onclick="MonsterClicked(19)">Red Scorpion</Button>
+          <Button class="Monster" onclick="MonsterClicked(20)">Tobin Farslayer</Button>
+        </HorizontalLayout>
+      </VerticalLayout>
+    </Panel>
+    <Panel rectAlignment="LowerRight" height="1375" width="500">
+      <VerticalLayout>
+        <Button class="Skill" onclick="HeroSkill(1)">Bounty Hunter</Button>
+        <Button class="Skill" onclick="HeroSkill(2)">Monk</Button>
+        <Button class="Skill" onclick="HeroSkill(3)">Shadow Walker</Button>
+        <Button class="Skill" onclick="HeroSkill(4)">Stalker</Button>
+        <Button class="Skill" onclick="HeroSkill(5)">Thief</Button>
+        <Button class="Skill" onclick="HeroSkill(6)">Treasure Hunter</Button>
+        <Button class="Skill" onclick="HeroSkill(7)">Wildlander</Button>
+      </VerticalLayout>
+    </Panel>
+  </Panel>
+</Panel>

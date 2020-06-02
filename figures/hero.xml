@@ -1,0 +1,10 @@
+<Defaults>
+  <Button fontSize="80" fontStyle="Bold" textColor="#FFFFFF" color="#000000F0"/>
+  <Text fontSize="80" fontStyle="Bold" color="#FFFFFF"/>
+  <InputField fontSize="80" color="#000000F0" textColor="#FFFFFF" characterValidation="Integer"/>
+</Defaults>
+
+<!-- rotation to be displayed on face side of figure -->
+<Panel id="heroPanel" position="0 0 -220" rotation="90 0 180" scale="0.2 0.2">
+  <Text>Hello panel</Text>
+</Panel>

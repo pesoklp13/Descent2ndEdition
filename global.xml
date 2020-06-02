@@ -1,0 +1,31 @@
+<Defaults>
+  <Panel allowDragging="true" returnToOriginalPositionWhenReleased="false"/>
+  <Image preserveAspect="true"/>
+  <Button color="#D0D0D0" fontStyle="bold" fontSize="18"/>
+  <Image class="Dice" preserveAspect="true" ignoreLayout="true"/>
+  <Button class="Dice" onClick="dice" colors="#FFFFFF00|#FFFFFF00|#00000060" textColor="#FFFFFF"/>
+  <Button class="Rolls" onClick="rolls" colors="#D0D0D0|#D0D0D0|#000000"/>
+  <Text color="#FFFFFF" ignoreLayout="true" fontStyle="Bold" fontSize="30"/>
+  <Panel class="RulesBook" width="756" height="1008" color="#141414" active="false" showAnimation="Grow" hideAnimation="Shrink" outline="#141414" outlineSize="5 5"/>
+  <Button class="topButtons" width="35" height="35" rectAlignment="UpperLeft" offsetXY="0 0"/>
+  <Text class="UIText" fontSize="20" fontStyle="Bold" color="rgb(0.51, 0.51, 0.51)"/>
+  <InputField class="UIInputField" width="50" height="33" fontSize="18" fontStyle="Bold" colors="#D0D0D0|#FFFFFF|#C8C8C8|rgba(0.78,0.78,0.78,0.5)"/>
+  <Button class="bottomButtons" width="35" height="35" rectAlignment="LowerLeft" showAnimation="Grow" hideAnimation="Shrink"/>
+  <HorizontalScrollView scrollbarBackgroundColor="#141414" scrollbarColors="rgb(0.51, 0.51, 0.51)" color="rgba(0,0,0,0.95)"/>
+  <Button class="controlButtons" height="80" width="45" color="#141414"/>
+  <ProgressBar fillImageColor="#FFFFFF" textOutline="#FFFFFF" fontStyle="bold" percentageTextFormat="0"/>
+  <Row dontUseTableRowBackground="true" preferredHeight="30"/>
+  <Cell dontUseTableCellBackground="true"/>
+  <Text class="HPtext" color="white" fontStyle="bold" fontSize="15"/>
+  <TableLayout columnWidths="30 30 180 30 30"/>
+  <Button class="Monster" fontSize="40" color="#000000F0" textColor="#FFFFFF"/>
+  <Button class="Skill" fontSize="40" color="#FFFFFF08" textColor="#FFFFFF"/>
+  <Panel class="class" active="false" rectAlignment="LowerCenter" width="2500" height="1425"/>
+</Defaults>
+
+<!-- Main rules Panel -->
+<Include src="!/Descent2ndEdition/panels/rulebook.xml"/>
+
+<Include src="!/Descent2ndEdition/panels/dices.xml"/>
+
+<Include src="!/Descent2ndEdition/figures/panels.xml"/>

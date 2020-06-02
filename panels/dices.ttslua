@@ -1,0 +1,214 @@
+diceBags = {
+  blue = {bagGuid = '63e8ee'},
+  yellow = {bagGuid = '3033ec'},
+  red = {bagGuid = '82bc87'},
+  green = {bagGuid = '0b4901'},
+  black = {bagGuid = 'a1428a'},
+  grey = {bagGuid = '6fef17'},
+  brown = {bagGuid = 'ddfe14'}
+}
+
+spawnedDice = {}
+displayDice = {}
+
+function showDicePool(player, value, id)
+  if Global.UI.getAttribute("DiceRoller", "active") == "false" then
+    Global.UI.show("DiceRoller")
+    Global.UI.setAttribute("DiceRoller", "active", "true")
+  else
+    Global.UI.hide("DiceRoller")
+    Global.UI.setAttribute("DiceRoller", "active", "false")
+  end
+end
+
+function dice(player, value, id)
+  local color = id:sub(1, - 3)
+  local amount = tonumber(id:sub(-2))
+  local newAmount = tonumber(Global.UI.getAttribute(color, "text")) + amount
+  if newAmount > 9 then
+    newAmount = 9
+  elseif newAmount < 0 then
+    newAmount = 0
+  end
+  Global.UI.setAttribute(color, "text", newAmount)
+end
+
+--------------------------------------------------------------------------------
+-- Spawns the dice relative to the dice spawn token (does not roll them yet)
+--------------------------------------------------------------------------------
+function rolls(player, value, type)
+  if type == "clear" then
+    clearDice()
+    return
+  end
+
+  local spawnPoint = getObjectFromGUID(spawnTokenGUID)
+  local spawnPointPos = spawnPoint.getPosition()
+  local posX = spawnPointPos.x
+  local posY = spawnPointPos.y + 5
+  local posZ = spawnPointPos.z
+  local xShift = 0
+  local zShift = 0
+  local totalDice = 0
+  local diceToSpawn = {}
+
+  if type == 'attack' then
+    diceToSpawn = {
+      blue = tonumber(Global.UI.getAttribute("blue", "text")),
+      red = tonumber(Global.UI.getAttribute("red", "text")),
+      yellow = tonumber(Global.UI.getAttribute("yellow", "text")),
+      green = tonumber(Global.UI.getAttribute("green", "text"))
+    }
+    totalDice = diceToSpawn.blue + diceToSpawn.red + diceToSpawn.yellow + diceToSpawn.green
+    posZ = posZ - 2
+    posX = posX - ((totalDice - 1) * 0.5)
+  elseif type == 'defence' then
+    diceToSpawn = {
+      brown = tonumber(Global.UI.getAttribute("brown", "text")),
+      grey = tonumber(Global.UI.getAttribute("grey", "text")),
+      black = tonumber(Global.UI.getAttribute("black", "text"))
+    }
+    totalDice = diceToSpawn.brown + diceToSpawn.grey + diceToSpawn.black
+    posZ = posZ + 2
+    posX = posX - ((totalDice - 1) * 0.5)
+  elseif type == 'test' then
+    diceToSpawn = {
+      grey = 1,
+      black = 1
+    }
+    totalDice = 2
+    posX = posX + 2
+    posZ = posZ - ((totalDice - 1) * 0.5)
+  elseif type == 'heal' then
+    diceToSpawn = {red = 2}
+    totalDice = 2
+    posX = posX - 2
+    posZ = posZ - ((totalDice - 1) * 0.5)
+  end
+
+  for color, num in pairs(diceToSpawn) do
+    local diceBag = getObjectFromGUID(diceBags[color].bagGuid)
+
+    for i = 1, num do
+      diceBag.takeObject({
+        position = {posX, posY, posZ},
+        callback = 'rollDice',
+        callback_owner = self,
+        --params = {color = color, num = num}
+      })
+      if type == 'attack' or type == 'defence' then
+        posX = posX + 1
+      elseif type == 'test' or type == 'heal' then
+        posZ = posZ + 1
+      end
+    end
+  end
+  monitorDice(player.color)
+end
+
+--------------------------------------------------------------------------------
+-- Rolls newly spawned dice
+--------------------------------------------------------------------------------
+function rollDice(die, params)
+  table.insert(displayDice, die)
+  die.roll()
+end
+
+--------------------------------------------------------------------------------
+-- Monitors dice to come to rest
+--------------------------------------------------------------------------------
+function monitorDice(color)
+  function coroutine_monitorDice()
+    wait(2)
+    repeat
+      local allRest = true
+      for _, die in ipairs(displayDice) do
+        if die ~= nil and die.resting == false then
+          allRest = false
+        end
+      end
+      coroutine.yield(0)
+    until allRest == true
+
+    displayResults(color)
+    return 1
+  end
+  startLuaCoroutine(self, "coroutine_monitorDice")
+end
+
+--Coroutine delay, in seconds
+function wait(time)
+  local start = os.time()
+  repeat coroutine.yield(0) until os.time() > start + time
+  end
+
+  --------------------------------------------------------------------------------
+  -- Clears all of the spawned dice
+  --------------------------------------------------------------------------------
+  function clearDice()
+    for _, die in pairs(spawnedDice) do
+      if die ~= nil then destroyObject(die) end
+    end
+    spawnedDice = {}
+  end
+
+  --------------------------------------------------------------------------------
+  -- Displays all dice values
+  --------------------------------------------------------------------------------
+  function displayResults(color)
+    local s, valueTable = "", {Wound = 0, Range = 0, Surge = 0, Shield = 0, Miss = false}
+
+    -- Player name
+    s = Player[color].steam_name
+    s = s .. "  -->  "
+
+    --Get values in table
+    for _, die in ipairs(displayDice) do
+      if die ~= nil then
+        local values = {}
+        values[1], values[2], values[3] = die.getRotationValue():match("([^/]*)/?([^/]*)/?([^/]*)")
+
+        for _, value in pairs(values) do
+          if value ~= nil then
+            if value:find("Range") then
+              valueTable.Range = valueTable.Range + tonumber(value:match("(%d+) Range"))
+            elseif value:find("Wound") then
+              if value == "Wound" then
+                valueTable.Wound = valueTable.Wound + 1
+              else
+                valueTable.Wound = valueTable.Wound + tonumber(value:match("Wound x (%d+)"))
+              end
+            elseif value:find("Surge") then
+              valueTable.Surge = valueTable.Surge + 1
+            elseif value:find("Shield") then
+              valueTable.Shield = valueTable.Shield + tonumber(value:match("Shield x (%d+)"))
+            elseif value:find("Miss") then
+              valueTable.Miss = true
+            end
+          end
+        end
+      end
+    end
+
+    if valueTable.Miss then
+      s = s .. "Missed!"
+    else
+      --Add values to string
+      for i, value in pairs(valueTable) do
+        if i ~= "Miss" then
+          if value > 0 then s = s .. i .. ": " .. value .. ", " end
+        end
+      end
+      s = s:sub(1, - 3)
+    end
+
+    --Establish color
+    local stringColor = {1, 1, 1}
+    stringColor = stringColorToRGB(color)
+    broadcastToAll(s, stringColor)
+
+    for _, die in ipairs(displayDice) do
+      table.insert(spawnedDice, die)
+    end
+    displayDice = {}
+  end

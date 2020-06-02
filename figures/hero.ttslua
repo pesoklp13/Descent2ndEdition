@@ -1,0 +1,15 @@
+#include !/Descent2ndEdition/figures/figure
+
+hero = Figure:new(Figure)
+print(hero.health.value)
+
+hero:modifyMaxHealth(1)
+print(hero.health.value)
+
+function loadXML()
+    print('loaded XML')
+    local position = self.getBounds().size.y / self.getScale().y
+    print('position evaluated' .. position)
+
+    self.UI.setAttribute("panel", "position", "0 0 -" .. self.getBounds().size.y / self.getScale().y) -- * options.heightModifier
+end

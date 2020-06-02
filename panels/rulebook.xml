@@ -1,0 +1,45 @@
+<Panel id="RulesPanel" class="RulesBook">
+  <Image image="Rule Book" rectAlignment="UpperCenter" height="30" preserveAspect="true" offsetXY="0 -5"></Image>
+  <Button id="zoomInButton" class="topButtons" onClick="RulesClicked">
+    <Image image="ZoomIn"></Image>
+  </Button>
+  <Button id="zoomOutButton" class="topButtons" offsetXY="40 0" onClick="RulesClicked">
+    <Image image="ZoomOut"></Image>
+  </Button>
+  <InputField
+    id="InputZoomMultiplier"
+    class="UIInputField"
+    characterValidation="Decimal"
+    tooltip="Percentage by which zooming and resizing happens. Must be above 100."
+    tooltipPosition="Above"
+    rectAlignment="UpperLeft"
+    textAlignment="MiddleCenter"
+    text="120"
+    offsetXY="80 -1"
+    onEndEdit="onEndEditZoomPercentage"></InputField>
+  <Image rectAlignment="UpperLeft" width="20" height="20" offsetXY="135 -7" image="Percentage" preserveAspect="true"></Image>
+  <Button id="closeButton" class="topButtons" rectAlignment="UpperRight" onClick="RulesClicked">
+    <Image image="X Sign"></Image>
+  </Button>
+
+  <HorizontalScrollView id="imageScroll" width="756" height="928" scrollSensitivity="30" vertical="true" verticalScrollbarVisibility="AutoHide" raycastTarget="false">
+    <Image id="RulesImage" rectAlignment="MiddleCenter" image="1" raycastTarget="false" preserveAspect="true" width="756" height="920"></Image>
+  </HorizontalScrollView>
+  <Button id="previousPage" class="controlButtons" onClick="RulesClicked" rectAlignment="MiddleLeft" active="false">
+    <Image image="ArrowLeft"></Image>
+  </Button>
+  <Button id="nextPage" class="controlButtons" onClick="RulesClicked" rectAlignment="MiddleRight">
+    <Image image="ArrowRight"></Image>
+  </Button>
+
+  <Button id="widenButton" class="bottomButtons" onClick="RulesClicked">
+    <Image image="Widen"></Image>
+  </Button>
+
+  <InputField id="CurrentPageCount" class="UIInputField" characterValidation="Integer" text="1" rectAlignment="LowerCenter" textAlignment="LowerRight" offsetXY="-33 1" onEndEdit="onEndEditCurrentPage"></InputField>
+  <Text id="MaxPageCount" class="UIText" text="/ 25" alignment="LowerCenter" offsetXY="12 6"></Text>
+
+  <Button id="narrowButton" class="bottomButtons" rectAlignment="LowerRight" onClick="RulesClicked">
+    <Image image="Narrow"></Image>
+  </Button>
+</Panel>

@@ -1,0 +1,6 @@
+--------------------- Dices
+#include !/Descent2ndEdition/panels/dices
+--------------------- Rules Book
+#include !/Descent2ndEdition/panels/rulebook
+--------------------- Monsters, Heroes & Lieutenants
+#include !/Descent2ndEdition/figures/monsters

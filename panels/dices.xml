@@ -1,0 +1,82 @@
+<Button visibility="" onClick="showDicePool" rectAlignment="UpperRight" offsetXY="-250 0" height="35" width="164" color="#343434">
+  <Image image="Dice Pool Button" preserveAspect="false"></Image>
+</Button>
+
+<Panel id="DiceRoller" height="368" width="248" rectAlignment="MiddleRight" offsetXY="0 0" active="false" color="rgba(0,0,0,0.95)" allowDragging="true" returnToOriginalPositionWhenReleased="false">
+  <Panel height="198" width="198" rectAlignment="UpperCenter" offsetXY="0 -20">
+    <VerticalLayout spacing="15">
+      <HorizontalLayout padding="0 140 0 0">
+        <Image image="Blue Dice" class="Dice" offsetXY="-69 0"></Image>
+        <Image image="Dice Pool Title" width="129" class="Dice" offsetXY="34 0"></Image>
+        <Text id="blue" offsetXY="-69 0" text="1"></Text>
+        <HorizontalLayout>
+          <Button id="blue-1" class="Dice">-</Button>
+          <Button id="blue+1" class="Dice">+</Button>
+        </HorizontalLayout>
+      </HorizontalLayout>
+      <HorizontalLayout spacing="11">
+        <Image image="Red Dice" class="Dice" offsetXY="-69 0"></Image>
+        <Image image="Yellow Btn" class="Dice" offsetXY="0 0"></Image>
+        <Image image="Green Dice" class="Dice" offsetXY="69 0"></Image>
+        <Text id="red" offsetXY="-69 0" text="0"></Text>
+        <Text id="yellow" text="0"></Text>
+        <Text id="green" offsetXY="69 0" text="0"></Text>
+        <HorizontalLayout>
+          <Button id="red-1" class="Dice">-</Button>
+          <Button id="red+1" class="Dice">+</Button>
+        </HorizontalLayout>
+        <HorizontalLayout>
+          <Button id="yellow-1" class="Dice">-</Button>
+          <Button id="yellow+1" class="Dice">+</Button>
+        </HorizontalLayout>
+        <HorizontalLayout>
+          <Button id="green-1" class="Dice">-</Button>
+          <Button id="green+1" class="Dice">+</Button>
+        </HorizontalLayout>
+      </HorizontalLayout>
+      <HorizontalLayout spacing="11">
+        <Image image="Brown Dice" class="Dice" offsetXY="-69 0"></Image>
+        <Image image="Grey Dice" class="Dice"></Image>
+        <Image image="Black Dice" class="Dice" offsetXY="69 0"></Image>
+        <Text id="brown" offsetXY="-69 0" text="0"></Text>
+        <Text id="grey" text="0"></Text>
+        <Text id="black" offsetXY="69 0" text="0"></Text>
+        <HorizontalLayout>
+          <Button id="brown-1" class="Dice">-</Button>
+          <Button id="brown+1" class="Dice">+</Button>
+        </HorizontalLayout>
+        <HorizontalLayout>
+          <Button id="grey-1" class="Dice">-</Button>
+          <Button id="grey+1" class="Dice">+</Button>
+        </HorizontalLayout>
+        <HorizontalLayout>
+          <Button id="black-1" class="Dice">-</Button>
+          <Button id="black+1" class="Dice">+</Button>
+        </HorizontalLayout>
+      </HorizontalLayout>
+    </VerticalLayout>
+  </Panel>
+  <Panel height="110" width="198" rectAlignment="LowerCenter" offsetXY="0 20">
+    <VerticalLayout spacing="10">
+      <HorizontalLayout spacing="10">
+        <Button id="attack" class="Rolls">
+          <Image image="Attack Btn" preserveAspect="false"></Image>
+        </Button>
+        <Button id="defence" class="Rolls">
+          <Image image="Defence Btn" preserveAspect="false"></Image>
+        </Button>
+      </HorizontalLayout>
+      <HorizontalLayout spacing="10">
+        <Button id="test" class="Rolls">
+          <Image image="Test Btn" preserveAspect="false"></Image>
+        </Button>
+        <Button id="heal" class="Rolls">
+          <Image image="Heal Btn" preserveAspect="false"></Image>
+        </Button>
+      </HorizontalLayout>
+      <Button id="clear" class="Rolls">
+        <Image image="Clear Dice Btn" preserveAspect="false"></Image>
+      </Button>
+    </VerticalLayout>
+  </Panel>
+</Panel>
